@@ -2,12 +2,14 @@ package com.example.java5nfa26sd21302.repository;
 
 import com.example.java5nfa26sd21302.entity.Student;
 import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
+@Transactional
 @RequiredArgsConstructor
 public class StudentRepository {
 
@@ -16,5 +18,10 @@ public class StudentRepository {
     public List<Student> getAllStudents() {
 
         return em.createQuery("from Student", Student.class).getResultList();
+    }
+
+    public void saveStudent(Student student) {
+
+        em.persist(student);
     }
 }

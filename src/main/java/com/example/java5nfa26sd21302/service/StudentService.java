@@ -17,4 +17,10 @@ public class StudentService {
 
         return studentRepository.getAllStudents();
     }
+
+    public void saveStudent(Student student) {
+
+        studentRepository.saveStudent(student);
+
+    }
 }
