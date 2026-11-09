@@ -24,4 +24,19 @@ public class StudentRepository {
 
         em.persist(student);
     }
+
+    public Student getStudentById(long id) {
+
+        return em.find(Student.class, id);
+    }
+
+    public void updateStudent(Student student) {
+
+        em.merge(student);
+    }
+
+    public void deleteStudentById(long id) {
+
+        em.remove(em.find(Student.class, id));
+    }
 }
